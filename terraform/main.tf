@@ -13,12 +13,13 @@ terraform {
   }
 }
 
-module "vnet" {
-  source  = "Azure/vnet/azurerm"
-  version = "4.0.0"
-  # insert the 3 required variables here
-  resource_group_name = "Test"
-  use_for_each = "false"
-  vnet_location = var.azure_location
+module "caf" {
+    source = "aztfmod/caf/azurerm"
+    version = "5.6.1"
 
+    global_settings = var.global_settings
+    resource_groups = var.resource_groups
+    providers = {
+        azurerm.vhub = azurerm
+    }
 }
