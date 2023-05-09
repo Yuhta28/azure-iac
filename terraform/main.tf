@@ -15,7 +15,7 @@ terraform {
 
 module "caf" {
     source = "aztfmod/caf/azurerm"
-    version = "5.6.1"
+    version = "5.7.0-preview0"
 
     global_settings = var.global_settings
     resource_groups = var.resource_groups
