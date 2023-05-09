@@ -6,6 +6,7 @@ terraform {
     }
   }
   cloud {
+     organization = "Yuta28"
     workspaces {
       name = "azure-iac"
     }
