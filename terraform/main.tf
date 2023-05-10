@@ -5,7 +5,7 @@ terraform {
       version = "~> 3.44.1"
     }
     azurecaf = {
-      source = "aztfmod/azurecaf"
+      source  = "aztfmod/azurecaf"
       version = "~> 1.2.11"
     }
   }
@@ -20,6 +20,6 @@ terraform {
 module "regions" {
   source  = "claranet/regions/azurerm"
   version = "6.1.0"
-  
+
   azure_region = "japaneast"
 }

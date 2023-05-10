@@ -7,15 +7,15 @@ provider "azurerm" {
 }
 
 provider "azurecaf" {
-  
+
 }
 
 resource "azurecaf_name" "rg_example" {
-  name            = "demogroup"
-    resource_type   = "azurerm_resource_group"
-    prefixes        = ["ctf"]
-    suffixes        = ["terraform" ]
-    clean_input     = true
+  name          = "demogroup"
+  resource_type = "azurerm_resource_group"
+  prefixes      = ["ctf"]
+  suffixes      = ["terraform"]
+  clean_input   = true
 }
 
 resource "azurerm_resource_group" "demo" {
