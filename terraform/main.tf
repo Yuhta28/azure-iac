@@ -4,6 +4,10 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "~> 3.44.1"
     }
+    azurecaf = {
+      source = "aztfmod/azurecaf"
+      version = "~> 1.2.11"
+    }
   }
   cloud {
     organization = "Yuta28"

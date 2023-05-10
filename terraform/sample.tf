@@ -6,20 +6,20 @@ provider "azurerm" {
   }
 }
 
-module "caf" {
-  source  = "aztfmod/caf/azurerm"
-  version = "5.7.0-preview0"
+provider "azureca" {
+  
+}
 
-  global_settings = var.global_settings
-  resource_groups = var.resource_groups
-  keyvaults       = var.keyvaults
+resource "azurecaf_name" "rg_example" {
+  name            = "demogroup"
+    resource_type   = "azurerm_resource_group"
+    prefixes        = ["a", "b"]
+    suffixes        = ["y", "z"]
+    random_length   = 5
+    clean_input     = true
+}
 
-  compute = {
-    virtual_machines = var.virtual_machines
-  }
-
-  networking = {
-    public_ip_addresses = var.public_ip_addresses
-    vnets               = var.vnets
-  }
+resource "azurerm_resource_group" "demo" {
+  name     = azurecaf_name.rg_example.result
+  location = var.azure_location
 }
