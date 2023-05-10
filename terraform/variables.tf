@@ -1,6 +1,6 @@
 variable "azure_location" {
   type        = string
-  default     = location
+  default     = module.regions.location_cli
   description = "Azure location for all resources"
 }
 
