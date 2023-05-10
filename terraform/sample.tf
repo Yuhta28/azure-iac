@@ -6,7 +6,7 @@ provider "azurerm" {
   }
 }
 
-provider "azureca" {
+provider "azurecaf" {
   
 }
 
