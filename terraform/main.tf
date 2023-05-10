@@ -17,5 +17,5 @@ module "regions" {
   source  = "claranet/regions/azurerm"
   version = "6.1.0"
   
-  azure_region = "jp-east"
+  azure_region = "japaneast"
 }
