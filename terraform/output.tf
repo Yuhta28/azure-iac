@@ -1,3 +1,3 @@
 output "location" {
-    value = module.regions.location_short
+    value = module.regions.location_cli
 }
