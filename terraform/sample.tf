@@ -13,9 +13,8 @@ provider "azurecaf" {
 resource "azurecaf_name" "rg_example" {
   name            = "demogroup"
     resource_type   = "azurerm_resource_group"
-    prefixes        = ["a", "b"]
-    suffixes        = ["y", "z"]
-    random_length   = 5
+    prefixes        = ["ctf"]
+    suffixes        = ["terraform" ]
     clean_input     = true
 }
 
