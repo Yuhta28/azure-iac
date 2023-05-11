@@ -13,6 +13,7 @@ provider "azurecaf" {
 resource "azurecaf_name" "rg_example" {
   name          = "demogroup"
   resource_type = "azurerm_resource_group"
+  resource_types = ["azurerm_app_service_plan", "azurerm_app_service"]
   prefixes      = ["ctf"]
   suffixes      = ["terraform"]
   clean_input   = true
@@ -24,7 +25,7 @@ resource "azurerm_resource_group" "demo" {
 }
 
 resource "azurerm_service_plan" "demo_plan" {
-  name = azurecaf_name.rg_example.result
+  name = azurecaf_name.rg_example.results[0]
   resource_group_name = azurerm_resource_group.demo.name
   location = var.azure_location
   os_type = "Linux"
@@ -32,7 +33,7 @@ resource "azurerm_service_plan" "demo_plan" {
 }
 
 resource "azurerm_linux_web_app" "demo_app" {
-  name = azurecaf_name.rg_example.result
+  name = azurecaf_name.rg_example.results[1]
   location = var.azure_location
   resource_group_name = azurerm_resource_group.demo.name
   service_plan_id = azurerm_service_plan.demo_plan.id
