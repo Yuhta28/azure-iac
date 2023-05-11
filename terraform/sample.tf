@@ -16,7 +16,6 @@ resource "azurecaf_name" "naming_define" {
   prefixes      = ["ctf"]
   suffixes      = ["terraform"]
   random_length = 3
-  separator     ="_"
   clean_input   = true
 }
 
