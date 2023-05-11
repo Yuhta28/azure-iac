@@ -20,12 +20,12 @@ resource "azurecaf_name" "naming_define" {
 }
 
 resource "azurerm_resource_group" "demo" {
-  name     = azurecaf_name.rg_example.results[0]
+  name     = azurecaf_name.naming_define.results[0]
   location = var.azure_location
 }
 
 resource "azurerm_service_plan" "demo_plan" {
-  name = azurecaf_name.rg_example.results[1]
+  name = azurecaf_name.naming_define.results[1]
   resource_group_name = azurerm_resource_group.demo.name
   location = var.azure_location
   os_type = "Linux"
@@ -33,7 +33,7 @@ resource "azurerm_service_plan" "demo_plan" {
 }
 
 resource "azurerm_linux_web_app" "demo_app" {
-  name = azurecaf_name.rg_example.results[2]
+  name = azurecaf_name.naming_define.results[2]
   location = var.azure_location
   resource_group_name = azurerm_resource_group.demo.name
   service_plan_id = azurerm_service_plan.demo_plan.id
