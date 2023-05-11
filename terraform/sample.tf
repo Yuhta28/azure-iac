@@ -20,7 +20,7 @@ resource "azurecaf_name" "naming_define" {
 }
 
 resource "azurerm_resource_group" "demo" {
-  name     = values(azurecaf_name.naming_define.results)[0]
+  name     = values(azurecaf_name.naming_define.results)[2]
   location = var.azure_location
 }
 
@@ -33,7 +33,7 @@ resource "azurerm_service_plan" "demo_plan" {
 }
 
 resource "azurerm_linux_web_app" "demo_app" {
-  name                = values(azurecaf_name.naming_define.results)[2]
+  name                = values(azurecaf_name.naming_define.results)[0]
   location            = var.azure_location
   resource_group_name = azurerm_resource_group.demo.name
   service_plan_id     = azurerm_service_plan.demo_plan.id
