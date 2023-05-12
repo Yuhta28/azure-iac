@@ -21,20 +21,20 @@ resource "azurecaf_name" "naming_define" {
 
 resource "azurerm_resource_group" "demo_rg" {
   name     = values(azurecaf_name.naming_define.results)[2]
-  location = var.azure_location
+  location = module.regions.location
 }
 
 resource "azurerm_service_plan" "demo_plan" {
   name                = values(azurecaf_name.naming_define.results)[1]
   resource_group_name = azurerm_resource_group.demo_rg.name
-  location            = var.azure_location
+  location            = module.regions.location
   os_type             = "Linux"
   sku_name            = "F1"
 }
 
 resource "azurerm_linux_web_app" "demo_app" {
   name                = values(azurecaf_name.naming_define.results)[0]
-  location            = var.azure_location
+  location            = module.regions.location
   resource_group_name = azurerm_resource_group.demo_rg.name
   service_plan_id     = azurerm_service_plan.demo_plan.id
 
