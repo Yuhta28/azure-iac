@@ -19,7 +19,7 @@ resource "azurecaf_name" "naming_define" {
   clean_input    = true
 }
 
-resource "azurerm_resource_group" "demo" {
+resource "azurerm_resource_group" "demo_rg" {
   name     = values(azurecaf_name.naming_define.results)[2]
   location = var.azure_location
 }
