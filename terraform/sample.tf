@@ -39,6 +39,6 @@ resource "azurerm_linux_web_app" "demo_app" {
   service_plan_id     = azurerm_service_plan.demo_plan.id
 
   site_config {
-
+    always_on = "false"
   }
 }
