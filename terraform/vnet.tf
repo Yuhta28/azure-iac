@@ -29,3 +29,9 @@ resource "azurerm_resource_group" "vnet_rg" {
   name     = values(azurecaf_name.vnet_naming.results)[0]
   location = module.regions.location
 }
+
+module "network" {
+  source  = "Azure/network/azurerm"
+  version = "5.2.0"
+  # insert the 2 required variables here
+}
