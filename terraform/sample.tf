@@ -12,7 +12,7 @@ provider "azurecaf" {
 
 resource "azurecaf_name" "naming_define" {
   name           = "demogroup"
-  resource_types = ["azurerm_resource_group", "azurerm_app_service_plan", "azurerm_app_service"]
+  resource_types = ["azurerm_resource_group", "azurerm_app_service_plan", "azurerm_app_service", "azurerm_virtual_network", "azurerm_subnet"]
   prefixes       = ["ctf"]
   suffixes       = ["terraform"]
   random_length  = 3

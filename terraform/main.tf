@@ -9,6 +9,8 @@ terraform {
       version = "~> 1.2.11"
     }
   }
+
+  # Terraform Cloudにstateファイル格納
   cloud {
     organization = "Yuta28"
     workspaces {
@@ -17,6 +19,7 @@ terraform {
   }
 }
 
+# 東日本リージョン指定
 module "regions" {
   source  = "claranet/regions/azurerm"
   version = "6.1.0"
