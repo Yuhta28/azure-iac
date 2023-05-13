@@ -4,7 +4,7 @@ module "vnet" {
   version = "4.0.0"
 
   resource_group_name = azurerm_resource_group.vnet_rg.name
-  use_for_each        = false
+  use_for_each        = true
   vnet_location       = module.regions.location
 
   address_space   = ["10.1.0.0/16"]
@@ -28,13 +28,4 @@ resource "azurecaf_name" "vnet_naming" {
 resource "azurerm_resource_group" "vnet_rg" {
   name     = values(azurecaf_name.vnet_naming.results)[0]
   location = module.regions.location
-}
-
-module "network" {
-  source  = "Azure/network/azurerm"
-  version = "5.2.0"
-
-  resource_group_name = azurerm_resource_group.vnet_rg.name
-  use_for_each        = false 
-
 }
