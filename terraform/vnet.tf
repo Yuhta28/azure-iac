@@ -14,6 +14,8 @@ module "vnet" {
   tags = {
     "IaC" : "Terraform"
   }
+
+  depends_on = [ azurerm_resource_group.vnet_rg ]
 }
 
 resource "azurecaf_name" "vnet_naming" {

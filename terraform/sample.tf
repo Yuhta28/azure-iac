@@ -1,15 +1,3 @@
-provider "azurerm" {
-  features {
-    resource_group {
-      prevent_deletion_if_contains_resources = true
-    }
-  }
-}
-
-provider "azurecaf" {
-
-}
-
 resource "azurecaf_name" "naming_define" {
   name           = "demogroup"
   resource_types = ["azurerm_resource_group", "azurerm_app_service_plan", "azurerm_app_service"]
