@@ -4,7 +4,7 @@ module "vnet" {
   version = "4.0.0"
 
   resource_group_name = azurerm_resource_group.vnet_rg.name
-  use_for_each        = false
+  use_for_each        = true
   vnet_location       = module.regions.location
 
   address_space   = ["10.1.0.0/16"]
