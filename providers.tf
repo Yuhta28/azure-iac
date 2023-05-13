@@ -7,5 +7,8 @@ provider "azurerm" {
 }
 
 provider "azurecaf" {
+    features {
+        
+    }
 
 }
